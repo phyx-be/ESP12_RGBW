@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Esp12 rgbw by phyx-be</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Esp12 rgbw</h1>
+        <p>An ESP12 based RGBW light module</p>
+
+        <p class="view"><a href="https://github.com/phyx-be/ESP12_RGBW">View the Project on GitHub <small>phyx-be/ESP12_RGBW</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/phyx-be/ESP12_RGBW/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/phyx-be/ESP12_RGBW/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/phyx-be/ESP12_RGBW">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="esp12_rgbw" class="anchor" href="#esp12_rgbw" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ESP12_RGBW</h1>
+
+<p>An ESP12 based RGBW light module using onboard LEDs or capable of controlling external LEDs.</p>
+
+<h2>
+<a id="rev-00" class="anchor" href="#rev-00" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Rev 00</h2>
+
+<p><img src="https://raw.githubusercontent.com/phyx-be/ESP12_RGBW/master/ESP12_RGBW_00/3D_VIEW_TOP.png" alt="ESP12_RGBW_00_T">
+<img src="https://raw.githubusercontent.com/phyx-be/ESP12_RGBW/master/ESP12_RGBW_00/3D_VIEW_BOT.png" alt="ESP12_RGBW_00_T"></p>
+
+<h2>
+<a id="features" class="anchor" href="#features" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Features</h2>
+
+<p>A list of the basic features for the intended use of this board.</p>
+
+<ul>
+<li>3V3 level FTDI-compatible UART pin header</li>
+<li>miniature push buttons for reset and boot</li>
+<li>Wide input DC-DC converter (input voltage ranging from 5V to 26V DC)</li>
+<li>4 FETs capable of sinking 4A</li>
+<li>3 strings of 3 RGBW LEDs each on the bottom side</li>
+</ul>
+
+<h2>
+<a id="variants" class="anchor" href="#variants" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Variants</h2>
+
+<p>The board has some options, beside the default configuration with the internal LEDs, which allows you to use the same board for different projects. You'll notice an option for a temperature sensor, bi-directional buffer and pluggable terminal block. More info regarding these options are listed below.</p>
+
+<h3>
+<a id="internal-leds" class="anchor" href="#internal-leds" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Internal LEDs</h3>
+
+<p>Default use with either 3, 6 or 9 RGBW LEDs soldered on the bottom side of the PCB. Requires a 12V DC power source. Don't forget to double the resistor values hen using 10mA RGBW LEDs instead of the 20mA LEDs as intended.</p>
+
+<h3>
+<a id="external-led-strips" class="anchor" href="#external-led-strips" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>External LED strips</h3>
+
+<p>If you want to drive external RGB or RGBW LED strip you'll have to solder the pluggable terminal block for and you don't need to solder the DC jack and the internal LEDs. If you do opt for a combination of internal and external LEDs, don't forget to match the working voltage of both. By default the internal LEDs require a working voltage of 12V DC.</p>
+
+<h3>
+<a id="temperature-sensor" class="anchor" href="#temperature-sensor" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Temperature sensor</h3>
+
+<p>You can choose either a 1-Wire <a href="http://www.maximintegrated.com/en/products/analog/sensors-and-sensor-interface/DS18B20.html">DS18B20</a> temperature sensor or a I2C controlled <a href="http://www.ti.com/product/TMP112">Ti TMP112</a> temperature sensor. The TMP112 has an higher accuracy.</p>
+
+<h3>
+<a id="bi-directional-buffer" class="anchor" href="#bi-directional-buffer" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Bi-directional buffer.</h3>
+
+<p>Soldering the dual channel bi-directional buffer <a href="http://www.ti.com/product/txb0102">TXB0102</a> makes it possible for the board to control digital LED strips and strings. This buffer requires a 5V reference which can be created by an internal 5V LDO or by supplying the board with 5V and placing a 0R resistor over the input and output pin of the LDO. Using this option you can no longer add the T1 and T2 FETs, hereby loosing 2 PWM or I/O channels.</p>
+
+<h2>
+<a id="example-use" class="anchor" href="#example-use" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example use</h2>
+
+<p>This board was designed to be used with the <a href="https://github.com/area3001/esp8266_lifx/tree/pwm_rgbw">PWM_RGBW branch</a> of the <a href="https://github.com/area3001/esp8266_lifx">ESP8266_LIFX</a> project from <a href="https://github.com/area3001/">Area 3001</a></p>
+
+<p><img src="https://raw.githubusercontent.com/phyx-be/ESP12_RGBW/master/ESP12_RGBW_00/example_green.jpg" alt="ex_gr"></p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/phyx-be">phyx-be</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-35123769-2");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
